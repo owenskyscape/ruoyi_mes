@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mes.mapper.MesMatchingpostMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.mes.domain.MesMatchingpost">
+    <!--@mbg.generated-->
+    <!--@Table mes_matchingpost-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="production_order_id" jdbcType="BIGINT" property="productionOrderId" />
+    <result column="match_date" jdbcType="VARCHAR" property="matchDate" />
+    <result column="match_time" jdbcType="VARCHAR" property="matchTime" />
+    <result column="numbers" jdbcType="VARCHAR" property="numbers" />
+    <result column="length" jdbcType="DOUBLE" property="length" />
+    <result column="effective_length" jdbcType="DOUBLE" property="effectiveLength" />
+    <result column="thick" jdbcType="VARCHAR" property="thick" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="size_scope" jdbcType="VARCHAR" property="sizeScope" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, production_order_id, match_date, match_time, numbers, `length`, effective_length, 
+    thick, create_user, size_scope
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from mes_matchingpost
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from mes_matchingpost
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.mes.domain.MesMatchingpost" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into mes_matchingpost
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productionOrderId != null">
+        production_order_id,
+      </if>
+      <if test="matchDate != null">
+        match_date,
+      </if>
+      <if test="matchTime != null">
+        match_time,
+      </if>
+      <if test="numbers != null">
+        numbers,
+      </if>
+      <if test="length != null">
+        `length`,
+      </if>
+      <if test="effectiveLength != null">
+        effective_length,
+      </if>
+      <if test="thick != null">
+        thick,
+      </if>
+      <if test="createUser != null">
+        create_user,
+      </if>
+      <if test="sizeScope != null">
+        size_scope,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productionOrderId != null">
+        #{productionOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="matchDate != null">
+        #{matchDate,jdbcType=VARCHAR},
+      </if>
+      <if test="matchTime != null">
+        #{matchTime,jdbcType=VARCHAR},
+      </if>
+      <if test="numbers != null">
+        #{numbers,jdbcType=VARCHAR},
+      </if>
+      <if test="length != null">
+        #{length,jdbcType=DOUBLE},
+      </if>
+      <if test="effectiveLength != null">
+        #{effectiveLength,jdbcType=DOUBLE},
+      </if>
+      <if test="thick != null">
+        #{thick,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="sizeScope != null">
+        #{sizeScope,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ruoyi.mes.domain.MesMatchingpost">
+    <!--@mbg.generated-->
+    update mes_matchingpost
+    <set>
+      <if test="productionOrderId != null">
+        production_order_id = #{productionOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="matchDate != null">
+        match_date = #{matchDate,jdbcType=VARCHAR},
+      </if>
+      <if test="matchTime != null">
+        match_time = #{matchTime,jdbcType=VARCHAR},
+      </if>
+      <if test="numbers != null">
+        numbers = #{numbers,jdbcType=VARCHAR},
+      </if>
+      <if test="length != null">
+        `length` = #{length,jdbcType=DOUBLE},
+      </if>
+      <if test="effectiveLength != null">
+        effective_length = #{effectiveLength,jdbcType=DOUBLE},
+      </if>
+      <if test="thick != null">
+        thick = #{thick,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null">
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="sizeScope != null">
+        size_scope = #{sizeScope,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ruoyi.mes.domain.MesMatchingpost">
+    <!--@mbg.generated-->
+    update mes_matchingpost
+    set production_order_id = #{productionOrderId,jdbcType=BIGINT},
+      match_date = #{matchDate,jdbcType=VARCHAR},
+      match_time = #{matchTime,jdbcType=VARCHAR},
+      numbers = #{numbers,jdbcType=VARCHAR},
+      `length` = #{length,jdbcType=DOUBLE},
+      effective_length = #{effectiveLength,jdbcType=DOUBLE},
+      thick = #{thick,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      size_scope = #{sizeScope,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

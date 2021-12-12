@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mes.mapper.MesProductionOrderCheckDetailMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.mes.domain.MesProductionOrderCheckDetail">
+    <!--@mbg.generated-->
+    <!--@Table mes_production_order_check_detail-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="production_order_id" jdbcType="BIGINT" property="productionOrderId" />
+    <result column="production_order_check_id" jdbcType="BIGINT" property="productionOrderCheckId" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="a_numbers" jdbcType="INTEGER" property="aNumbers" />
+    <result column="high_resistance" jdbcType="INTEGER" property="highResistance" />
+    <result column="low_resistance" jdbcType="INTEGER" property="lowResistance" />
+    <result column="a_size" jdbcType="INTEGER" property="aSize" />
+    <result column="a2_line" jdbcType="VARCHAR" property="a2Line" />
+    <result column="b2_line" jdbcType="VARCHAR" property="b2Line" />
+    <result column="knife_side" jdbcType="VARCHAR" property="knifeSide" />
+    <result column="b3" jdbcType="VARCHAR" property="b3" />
+    <result column="b4" jdbcType="VARCHAR" property="b4" />
+    <result column="b5" jdbcType="VARCHAR" property="b5" />
+    <result column="c1ttv" jdbcType="VARCHAR" property="c1ttv" />
+    <result column="c2" jdbcType="VARCHAR" property="c2" />
+    <result column="c7" jdbcType="VARCHAR" property="c7" />
+    <result column="dc" jdbcType="VARCHAR" property="dc" />
+    <result column="double_disc" jdbcType="VARCHAR" property="doubleDisc" />
+    <result column="other" jdbcType="VARCHAR" property="other" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, production_order_id, production_order_check_id, `type`, a_numbers, high_resistance, 
+    low_resistance, a_size, a2_line, b2_line, knife_side, b3, b4, b5, c1ttv, c2, c7, 
+    dc, double_disc, other
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from mes_production_order_check_detail
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from mes_production_order_check_detail
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.mes.domain.MesProductionOrderCheckDetail" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into mes_production_order_check_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productionOrderId != null">
+        production_order_id,
+      </if>
+      <if test="productionOrderCheckId != null">
+        production_order_check_id,
+      </if>
+      <if test="type != null">
+        `type`,
+      </if>
+      <if test="aNumbers != null">
+        a_numbers,
+      </if>
+      <if test="highResistance != null">
+        high_resistance,
+      </if>
+      <if test="lowResistance != null">
+        low_resistance,
+      </if>
+      <if test="aSize != null">
+        a_size,
+      </if>
+      <if test="a2Line != null">
+        a2_line,
+      </if>
+      <if test="b2Line != null">
+        b2_line,
+      </if>
+      <if test="knifeSide != null">
+        knife_side,
+      </if>
+      <if test="b3 != null">
+        b3,
+      </if>
+      <if test="b4 != null">
+        b4,
+      </if>
+      <if test="b5 != null">
+        b5,
+      </if>
+      <if test="c1ttv != null">
+        c1ttv,
+      </if>
+      <if test="c2 != null">
+        c2,
+      </if>
+      <if test="c7 != null">
+        c7,
+      </if>
+      <if test="dc != null">
+        dc,
+      </if>
+      <if test="doubleDisc != null">
+        double_disc,
+      </if>
+      <if test="other != null">
+        other,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productionOrderId != null">
+        #{productionOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="productionOrderCheckId != null">
+        #{productionOrderCheckId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="aNumbers != null">
+        #{aNumbers,jdbcType=INTEGER},
+      </if>
+      <if test="highResistance != null">
+        #{highResistance,jdbcType=INTEGER},
+      </if>
+      <if test="lowResistance != null">
+        #{lowResistance,jdbcType=INTEGER},
+      </if>
+      <if test="aSize != null">
+        #{aSize,jdbcType=INTEGER},
+      </if>
+      <if test="a2Line != null">
+        #{a2Line,jdbcType=VARCHAR},
+      </if>
+      <if test="b2Line != null">
+        #{b2Line,jdbcType=VARCHAR},
+      </if>
+      <if test="knifeSide != null">
+        #{knifeSide,jdbcType=VARCHAR},
+      </if>
+      <if test="b3 != null">
+        #{b3,jdbcType=VARCHAR},
+      </if>
+      <if test="b4 != null">
+        #{b4,jdbcType=VARCHAR},
+      </if>
+      <if test="b5 != null">
+        #{b5,jdbcType=VARCHAR},
+      </if>
+      <if test="c1ttv != null">
+        #{c1ttv,jdbcType=VARCHAR},
+      </if>
+      <if test="c2 != null">
+        #{c2,jdbcType=VARCHAR},
+      </if>
+      <if test="c7 != null">
+        #{c7,jdbcType=VARCHAR},
+      </if>
+      <if test="dc != null">
+        #{dc,jdbcType=VARCHAR},
+      </if>
+      <if test="doubleDisc != null">
+        #{doubleDisc,jdbcType=VARCHAR},
+      </if>
+      <if test="other != null">
+        #{other,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ruoyi.mes.domain.MesProductionOrderCheckDetail">
+    <!--@mbg.generated-->
+    update mes_production_order_check_detail
+    <set>
+      <if test="productionOrderId != null">
+        production_order_id = #{productionOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="productionOrderCheckId != null">
+        production_order_check_id = #{productionOrderCheckId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        `type` = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="aNumbers != null">
+        a_numbers = #{aNumbers,jdbcType=INTEGER},
+      </if>
+      <if test="highResistance != null">
+        high_resistance = #{highResistance,jdbcType=INTEGER},
+      </if>
+      <if test="lowResistance != null">
+        low_resistance = #{lowResistance,jdbcType=INTEGER},
+      </if>
+      <if test="aSize != null">
+        a_size = #{aSize,jdbcType=INTEGER},
+      </if>
+      <if test="a2Line != null">
+        a2_line = #{a2Line,jdbcType=VARCHAR},
+      </if>
+      <if test="b2Line != null">
+        b2_line = #{b2Line,jdbcType=VARCHAR},
+      </if>
+      <if test="knifeSide != null">
+        knife_side = #{knifeSide,jdbcType=VARCHAR},
+      </if>
+      <if test="b3 != null">
+        b3 = #{b3,jdbcType=VARCHAR},
+      </if>
+      <if test="b4 != null">
+        b4 = #{b4,jdbcType=VARCHAR},
+      </if>
+      <if test="b5 != null">
+        b5 = #{b5,jdbcType=VARCHAR},
+      </if>
+      <if test="c1ttv != null">
+        c1ttv = #{c1ttv,jdbcType=VARCHAR},
+      </if>
+      <if test="c2 != null">
+        c2 = #{c2,jdbcType=VARCHAR},
+      </if>
+      <if test="c7 != null">
+        c7 = #{c7,jdbcType=VARCHAR},
+      </if>
+      <if test="dc != null">
+        dc = #{dc,jdbcType=VARCHAR},
+      </if>
+      <if test="doubleDisc != null">
+        double_disc = #{doubleDisc,jdbcType=VARCHAR},
+      </if>
+      <if test="other != null">
+        other = #{other,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ruoyi.mes.domain.MesProductionOrderCheckDetail">
+    <!--@mbg.generated-->
+    update mes_production_order_check_detail
+    set production_order_id = #{productionOrderId,jdbcType=BIGINT},
+      production_order_check_id = #{productionOrderCheckId,jdbcType=BIGINT},
+      `type` = #{type,jdbcType=VARCHAR},
+      a_numbers = #{aNumbers,jdbcType=INTEGER},
+      high_resistance = #{highResistance,jdbcType=INTEGER},
+      low_resistance = #{lowResistance,jdbcType=INTEGER},
+      a_size = #{aSize,jdbcType=INTEGER},
+      a2_line = #{a2Line,jdbcType=VARCHAR},
+      b2_line = #{b2Line,jdbcType=VARCHAR},
+      knife_side = #{knifeSide,jdbcType=VARCHAR},
+      b3 = #{b3,jdbcType=VARCHAR},
+      b4 = #{b4,jdbcType=VARCHAR},
+      b5 = #{b5,jdbcType=VARCHAR},
+      c1ttv = #{c1ttv,jdbcType=VARCHAR},
+      c2 = #{c2,jdbcType=VARCHAR},
+      c7 = #{c7,jdbcType=VARCHAR},
+      dc = #{dc,jdbcType=VARCHAR},
+      double_disc = #{doubleDisc,jdbcType=VARCHAR},
+      other = #{other,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

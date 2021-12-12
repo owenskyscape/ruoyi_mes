@@ -1,13 +1,15 @@
-package com.ruoyi.system.domain;
-
-import lombok.Data;
+package com.ruoyi.mes.domain;
 
 import java.io.Serializable;
 import java.util.Date;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+
 /**
  * 生产指令
- *
  * @author DaiChao
  */
 @Data
@@ -16,6 +18,7 @@ public class MesProductionOrder implements Serializable {
     /**
      * 主键
      */
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
