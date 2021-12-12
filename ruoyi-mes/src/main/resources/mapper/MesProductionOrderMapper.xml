@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mes.mapper.MesProductionOrderMapper">
+    <resultMap id="BaseResultMap" type="com.ruoyi.mes.domain.MesProductionOrder">
+        <!--@mbg.generated-->
+        <!--@Table mes_production_order-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="layer_number" jdbcType="INTEGER" property="layerNumber"/>
+        <result column="code" jdbcType="VARCHAR" property="code"/>
+        <result column="model" jdbcType="VARCHAR" property="model"/>
+        <result column="spec" jdbcType="VARCHAR" property="spec"/>
+        <result column="up_resistivity" jdbcType="DOUBLE" property="upResistivity"/>
+        <result column="down_resistivity" jdbcType="DOUBLE" property="downResistivity"/>
+        <result column="up_resistance" jdbcType="DOUBLE" property="upResistance"/>
+        <result column="down_resistance" jdbcType="DOUBLE" property="downResistance"/>
+        <result column="min_dia" jdbcType="INTEGER" property="minDia"/>
+        <result column="max_dia" jdbcType="INTEGER" property="maxDia"/>
+        <result column="up_life" jdbcType="INTEGER" property="upLife"/>
+        <result column="down_life" jdbcType="INTEGER" property="downLife"/>
+        <result column="pass_length" jdbcType="INTEGER" property="passLength"/>
+        <result column="weight" jdbcType="DOUBLE" property="weight"/>
+        <result column="min_margin" jdbcType="DOUBLE" property="minMargin"/>
+        <result column="max_margin" jdbcType="DOUBLE" property="maxMargin"/>
+        <result column="remark" jdbcType="LONGVARCHAR" property="remark"/>
+        <result column="in_level" jdbcType="VARCHAR" property="inLevel"/>
+        <result column="resistivity" jdbcType="VARCHAR" property="resistivity"/>
+        <result column="in_store_data" jdbcType="TIMESTAMP" property="inStoreData"/>
+        <result column="heat_number" jdbcType="INTEGER" property="heatNumber"/>
+        <result column="area" jdbcType="VARCHAR" property="area"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, layer_number, code, model, spec, up_resistivity, down_resistivity, up_resistance,
+        down_resistance, min_dia, max_dia, up_life, down_life, pass_length, weight, min_margin,
+        max_margin, remark, in_level, resistivity, in_store_data, heat_number, area
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from mes_production_order
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        <!--@mbg.generated-->
+        delete from mes_production_order
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.mes.domain.MesProductionOrder"
+            useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into mes_production_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="layerNumber != null">
+                layer_number,
+            </if>
+            <if test="code != null">
+                code,
+            </if>
+            <if test="model != null">
+                model,
+            </if>
+            <if test="spec != null">
+                spec,
+            </if>
+            <if test="upResistivity != null">
+                up_resistivity,
+            </if>
+            <if test="downResistivity != null">
+                down_resistivity,
+            </if>
+            <if test="upResistance != null">
+                up_resistance,
+            </if>
+            <if test="downResistance != null">
+                down_resistance,
+            </if>
+            <if test="minDia != null">
+                min_dia,
+            </if>
+            <if test="maxDia != null">
+                max_dia,
+            </if>
+            <if test="upLife != null">
+                up_life,
+            </if>
+            <if test="downLife != null">
+                down_life,
+            </if>
+            <if test="passLength != null">
+                pass_length,
+            </if>
+            <if test="weight != null">
+                weight,
+            </if>
+            <if test="minMargin != null">
+                min_margin,
+            </if>
+            <if test="maxMargin != null">
+                max_margin,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="inLevel != null">
+                in_level,
+            </if>
+            <if test="resistivity != null">
+                resistivity,
+            </if>
+            <if test="inStoreData != null">
+                in_store_data,
+            </if>
+            <if test="heatNumber != null">
+                heat_number,
+            </if>
+            <if test="area != null">
+                area,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="layerNumber != null">
+                #{layerNumber,jdbcType=INTEGER},
+            </if>
+            <if test="code != null">
+                #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="model != null">
+                #{model,jdbcType=VARCHAR},
+            </if>
+            <if test="spec != null">
+                #{spec,jdbcType=VARCHAR},
+            </if>
+            <if test="upResistivity != null">
+                #{upResistivity,jdbcType=DOUBLE},
+            </if>
+            <if test="downResistivity != null">
+                #{downResistivity,jdbcType=DOUBLE},
+            </if>
+            <if test="upResistance != null">
+                #{upResistance,jdbcType=DOUBLE},
+            </if>
+            <if test="downResistance != null">
+                #{downResistance,jdbcType=DOUBLE},
+            </if>
+            <if test="minDia != null">
+                #{minDia,jdbcType=INTEGER},
+            </if>
+            <if test="maxDia != null">
+                #{maxDia,jdbcType=INTEGER},
+            </if>
+            <if test="upLife != null">
+                #{upLife,jdbcType=INTEGER},
+            </if>
+            <if test="downLife != null">
+                #{downLife,jdbcType=INTEGER},
+            </if>
+            <if test="passLength != null">
+                #{passLength,jdbcType=INTEGER},
+            </if>
+            <if test="weight != null">
+                #{weight,jdbcType=DOUBLE},
+            </if>
+            <if test="minMargin != null">
+                #{minMargin,jdbcType=DOUBLE},
+            </if>
+            <if test="maxMargin != null">
+                #{maxMargin,jdbcType=DOUBLE},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="inLevel != null">
+                #{inLevel,jdbcType=VARCHAR},
+            </if>
+            <if test="resistivity != null">
+                #{resistivity,jdbcType=VARCHAR},
+            </if>
+            <if test="inStoreData != null">
+                #{inStoreData,jdbcType=TIMESTAMP},
+            </if>
+            <if test="heatNumber != null">
+                #{heatNumber,jdbcType=INTEGER},
+            </if>
+            <if test="area != null">
+                #{area,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ruoyi.mes.domain.MesProductionOrder">
+        <!--@mbg.generated-->
+        update mes_production_order
+        <set>
+            <if test="layerNumber != null">
+                layer_number = #{layerNumber,jdbcType=INTEGER},
+            </if>
+            <if test="code != null">
+                code = #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="model != null">
+                model = #{model,jdbcType=VARCHAR},
+            </if>
+            <if test="spec != null">
+                spec = #{spec,jdbcType=VARCHAR},
+            </if>
+            <if test="upResistivity != null">
+                up_resistivity = #{upResistivity,jdbcType=DOUBLE},
+            </if>
+            <if test="downResistivity != null">
+                down_resistivity = #{downResistivity,jdbcType=DOUBLE},
+            </if>
+            <if test="upResistance != null">
+                up_resistance = #{upResistance,jdbcType=DOUBLE},
+            </if>
+            <if test="downResistance != null">
+                down_resistance = #{downResistance,jdbcType=DOUBLE},
+            </if>
+            <if test="minDia != null">
+                min_dia = #{minDia,jdbcType=INTEGER},
+            </if>
+            <if test="maxDia != null">
+                max_dia = #{maxDia,jdbcType=INTEGER},
+            </if>
+            <if test="upLife != null">
+                up_life = #{upLife,jdbcType=INTEGER},
+            </if>
+            <if test="downLife != null">
+                down_life = #{downLife,jdbcType=INTEGER},
+            </if>
+            <if test="passLength != null">
+                pass_length = #{passLength,jdbcType=INTEGER},
+            </if>
+            <if test="weight != null">
+                weight = #{weight,jdbcType=DOUBLE},
+            </if>
+            <if test="minMargin != null">
+                min_margin = #{minMargin,jdbcType=DOUBLE},
+            </if>
+            <if test="maxMargin != null">
+                max_margin = #{maxMargin,jdbcType=DOUBLE},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="inLevel != null">
+                in_level = #{inLevel,jdbcType=VARCHAR},
+            </if>
+            <if test="resistivity != null">
+                resistivity = #{resistivity,jdbcType=VARCHAR},
+            </if>
+            <if test="inStoreData != null">
+                in_store_data = #{inStoreData,jdbcType=TIMESTAMP},
+            </if>
+            <if test="heatNumber != null">
+                heat_number = #{heatNumber,jdbcType=INTEGER},
+            </if>
+            <if test="area != null">
+                area = #{area,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ruoyi.mes.domain.MesProductionOrder">
+        <!--@mbg.generated-->
+        update mes_production_order
+        set layer_number = #{layerNumber,jdbcType=INTEGER},
+        code = #{code,jdbcType=VARCHAR},
+        model = #{model,jdbcType=VARCHAR},
+        spec = #{spec,jdbcType=VARCHAR},
+        up_resistivity = #{upResistivity,jdbcType=DOUBLE},
+        down_resistivity = #{downResistivity,jdbcType=DOUBLE},
+        up_resistance = #{upResistance,jdbcType=DOUBLE},
+        down_resistance = #{downResistance,jdbcType=DOUBLE},
+        min_dia = #{minDia,jdbcType=INTEGER},
+        max_dia = #{maxDia,jdbcType=INTEGER},
+        up_life = #{upLife,jdbcType=INTEGER},
+        down_life = #{downLife,jdbcType=INTEGER},
+        pass_length = #{passLength,jdbcType=INTEGER},
+        weight = #{weight,jdbcType=DOUBLE},
+        min_margin = #{minMargin,jdbcType=DOUBLE},
+        max_margin = #{maxMargin,jdbcType=DOUBLE},
+        remark = #{remark,jdbcType=LONGVARCHAR},
+        in_level = #{inLevel,jdbcType=VARCHAR},
+        resistivity = #{resistivity,jdbcType=VARCHAR},
+        in_store_data = #{inStoreData,jdbcType=TIMESTAMP},
+        heat_number = #{heatNumber,jdbcType=INTEGER},
+        area = #{area,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

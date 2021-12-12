@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mes.mapper.MesSliceMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.mes.domain.MesSlice">
+    <!--@mbg.generated-->
+    <!--@Table mes_slice-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="production_order_id" jdbcType="BIGINT" property="productionOrderId" />
+    <result column="date" jdbcType="VARCHAR" property="date" />
+    <result column="team" jdbcType="VARCHAR" property="team" />
+    <result column="slot_pitch" jdbcType="DOUBLE" property="slotPitch" />
+    <result column="theory_numbers" jdbcType="INTEGER" property="theoryNumbers" />
+    <result column="boot_dose" jdbcType="INTEGER" property="bootDose" />
+    <result column="operation_user" jdbcType="VARCHAR" property="operationUser" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="glue_stick_loss" jdbcType="DOUBLE" property="glueStickLoss" />
+    <result column="main_roller_time" jdbcType="VARCHAR" property="mainRollerTime" />
+    <result column="inducer_batch" jdbcType="VARCHAR" property="inducerBatch" />
+    <result column="guide_time" jdbcType="TIMESTAMP" property="guideTime" />
+    <result column="steel_wire_spec" jdbcType="VARCHAR" property="steelWireSpec" />
+    <result column="steel_wire_batch" jdbcType="VARCHAR" property="steelWireBatch" />
+    <result column="steel_wire_code" jdbcType="VARCHAR" property="steelWireCode" />
+    <result column="knife_no" jdbcType="INTEGER" property="knifeNo" />
+    <result column="cutting_fluid_batch" jdbcType="VARCHAR" property="cuttingFluidBatch" />
+    <result column="cutting_fluid_dosage" jdbcType="INTEGER" property="cuttingFluidDosage" />
+    <result column="offline_numbers" jdbcType="INTEGER" property="offlineNumbers" />
+    <result column="add_cut_flag" jdbcType="BIT" property="addCutFlag" />
+    <result column="knife_use_dosage" jdbcType="INTEGER" property="knifeUseDosage" />
+    <result column="under_user" jdbcType="VARCHAR" property="underUser" />
+    <result column="under_time" jdbcType="TIMESTAMP" property="underTime" />
+    <result column="timeout_remark" jdbcType="LONGVARCHAR" property="timeoutRemark" />
+    <result column="offline_reason" jdbcType="LONGVARCHAR" property="offlineReason" />
+    <result column="offline_remark" jdbcType="LONGVARCHAR" property="offlineRemark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, production_order_id, `date`, team, slot_pitch, theory_numbers, boot_dose, operation_user, 
+    start_time, glue_stick_loss, main_roller_time, inducer_batch, guide_time, steel_wire_spec, 
+    steel_wire_batch, steel_wire_code, knife_no, cutting_fluid_batch, cutting_fluid_dosage, 
+    offline_numbers, add_cut_flag, knife_use_dosage, under_user, under_time, timeout_remark, 
+    offline_reason, offline_remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from mes_slice
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from mes_slice
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.mes.domain.MesSlice" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into mes_slice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productionOrderId != null">
+        production_order_id,
+      </if>
+      <if test="date != null">
+        `date`,
+      </if>
+      <if test="team != null">
+        team,
+      </if>
+      <if test="slotPitch != null">
+        slot_pitch,
+      </if>
+      <if test="theoryNumbers != null">
+        theory_numbers,
+      </if>
+      <if test="bootDose != null">
+        boot_dose,
+      </if>
+      <if test="operationUser != null">
+        operation_user,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="glueStickLoss != null">
+        glue_stick_loss,
+      </if>
+      <if test="mainRollerTime != null">
+        main_roller_time,
+      </if>
+      <if test="inducerBatch != null">
+        inducer_batch,
+      </if>
+      <if test="guideTime != null">
+        guide_time,
+      </if>
+      <if test="steelWireSpec != null">
+        steel_wire_spec,
+      </if>
+      <if test="steelWireBatch != null">
+        steel_wire_batch,
+      </if>
+      <if test="steelWireCode != null">
+        steel_wire_code,
+      </if>
+      <if test="knifeNo != null">
+        knife_no,
+      </if>
+      <if test="cuttingFluidBatch != null">
+        cutting_fluid_batch,
+      </if>
+      <if test="cuttingFluidDosage != null">
+        cutting_fluid_dosage,
+      </if>
+      <if test="offlineNumbers != null">
+        offline_numbers,
+      </if>
+      <if test="addCutFlag != null">
+        add_cut_flag,
+      </if>
+      <if test="knifeUseDosage != null">
+        knife_use_dosage,
+      </if>
+      <if test="underUser != null">
+        under_user,
+      </if>
+      <if test="underTime != null">
+        under_time,
+      </if>
+      <if test="timeoutRemark != null">
+        timeout_remark,
+      </if>
+      <if test="offlineReason != null">
+        offline_reason,
+      </if>
+      <if test="offlineRemark != null">
+        offline_remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productionOrderId != null">
+        #{productionOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="team != null">
+        #{team,jdbcType=VARCHAR},
+      </if>
+      <if test="slotPitch != null">
+        #{slotPitch,jdbcType=DOUBLE},
+      </if>
+      <if test="theoryNumbers != null">
+        #{theoryNumbers,jdbcType=INTEGER},
+      </if>
+      <if test="bootDose != null">
+        #{bootDose,jdbcType=INTEGER},
+      </if>
+      <if test="operationUser != null">
+        #{operationUser,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="glueStickLoss != null">
+        #{glueStickLoss,jdbcType=DOUBLE},
+      </if>
+      <if test="mainRollerTime != null">
+        #{mainRollerTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inducerBatch != null">
+        #{inducerBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="guideTime != null">
+        #{guideTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="steelWireSpec != null">
+        #{steelWireSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="steelWireBatch != null">
+        #{steelWireBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="steelWireCode != null">
+        #{steelWireCode,jdbcType=VARCHAR},
+      </if>
+      <if test="knifeNo != null">
+        #{knifeNo,jdbcType=INTEGER},
+      </if>
+      <if test="cuttingFluidBatch != null">
+        #{cuttingFluidBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="cuttingFluidDosage != null">
+        #{cuttingFluidDosage,jdbcType=INTEGER},
+      </if>
+      <if test="offlineNumbers != null">
+        #{offlineNumbers,jdbcType=INTEGER},
+      </if>
+      <if test="addCutFlag != null">
+        #{addCutFlag,jdbcType=BIT},
+      </if>
+      <if test="knifeUseDosage != null">
+        #{knifeUseDosage,jdbcType=INTEGER},
+      </if>
+      <if test="underUser != null">
+        #{underUser,jdbcType=VARCHAR},
+      </if>
+      <if test="underTime != null">
+        #{underTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeoutRemark != null">
+        #{timeoutRemark,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="offlineReason != null">
+        #{offlineReason,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="offlineRemark != null">
+        #{offlineRemark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ruoyi.mes.domain.MesSlice">
+    <!--@mbg.generated-->
+    update mes_slice
+    <set>
+      <if test="productionOrderId != null">
+        production_order_id = #{productionOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="date != null">
+        `date` = #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="team != null">
+        team = #{team,jdbcType=VARCHAR},
+      </if>
+      <if test="slotPitch != null">
+        slot_pitch = #{slotPitch,jdbcType=DOUBLE},
+      </if>
+      <if test="theoryNumbers != null">
+        theory_numbers = #{theoryNumbers,jdbcType=INTEGER},
+      </if>
+      <if test="bootDose != null">
+        boot_dose = #{bootDose,jdbcType=INTEGER},
+      </if>
+      <if test="operationUser != null">
+        operation_user = #{operationUser,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="glueStickLoss != null">
+        glue_stick_loss = #{glueStickLoss,jdbcType=DOUBLE},
+      </if>
+      <if test="mainRollerTime != null">
+        main_roller_time = #{mainRollerTime,jdbcType=VARCHAR},
+      </if>
+      <if test="inducerBatch != null">
+        inducer_batch = #{inducerBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="guideTime != null">
+        guide_time = #{guideTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="steelWireSpec != null">
+        steel_wire_spec = #{steelWireSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="steelWireBatch != null">
+        steel_wire_batch = #{steelWireBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="steelWireCode != null">
+        steel_wire_code = #{steelWireCode,jdbcType=VARCHAR},
+      </if>
+      <if test="knifeNo != null">
+        knife_no = #{knifeNo,jdbcType=INTEGER},
+      </if>
+      <if test="cuttingFluidBatch != null">
+        cutting_fluid_batch = #{cuttingFluidBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="cuttingFluidDosage != null">
+        cutting_fluid_dosage = #{cuttingFluidDosage,jdbcType=INTEGER},
+      </if>
+      <if test="offlineNumbers != null">
+        offline_numbers = #{offlineNumbers,jdbcType=INTEGER},
+      </if>
+      <if test="addCutFlag != null">
+        add_cut_flag = #{addCutFlag,jdbcType=BIT},
+      </if>
+      <if test="knifeUseDosage != null">
+        knife_use_dosage = #{knifeUseDosage,jdbcType=INTEGER},
+      </if>
+      <if test="underUser != null">
+        under_user = #{underUser,jdbcType=VARCHAR},
+      </if>
+      <if test="underTime != null">
+        under_time = #{underTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="timeoutRemark != null">
+        timeout_remark = #{timeoutRemark,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="offlineReason != null">
+        offline_reason = #{offlineReason,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="offlineRemark != null">
+        offline_remark = #{offlineRemark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ruoyi.mes.domain.MesSlice">
+    <!--@mbg.generated-->
+    update mes_slice
+    set production_order_id = #{productionOrderId,jdbcType=BIGINT},
+      `date` = #{date,jdbcType=VARCHAR},
+      team = #{team,jdbcType=VARCHAR},
+      slot_pitch = #{slotPitch,jdbcType=DOUBLE},
+      theory_numbers = #{theoryNumbers,jdbcType=INTEGER},
+      boot_dose = #{bootDose,jdbcType=INTEGER},
+      operation_user = #{operationUser,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      glue_stick_loss = #{glueStickLoss,jdbcType=DOUBLE},
+      main_roller_time = #{mainRollerTime,jdbcType=VARCHAR},
+      inducer_batch = #{inducerBatch,jdbcType=VARCHAR},
+      guide_time = #{guideTime,jdbcType=TIMESTAMP},
+      steel_wire_spec = #{steelWireSpec,jdbcType=VARCHAR},
+      steel_wire_batch = #{steelWireBatch,jdbcType=VARCHAR},
+      steel_wire_code = #{steelWireCode,jdbcType=VARCHAR},
+      knife_no = #{knifeNo,jdbcType=INTEGER},
+      cutting_fluid_batch = #{cuttingFluidBatch,jdbcType=VARCHAR},
+      cutting_fluid_dosage = #{cuttingFluidDosage,jdbcType=INTEGER},
+      offline_numbers = #{offlineNumbers,jdbcType=INTEGER},
+      add_cut_flag = #{addCutFlag,jdbcType=BIT},
+      knife_use_dosage = #{knifeUseDosage,jdbcType=INTEGER},
+      under_user = #{underUser,jdbcType=VARCHAR},
+      under_time = #{underTime,jdbcType=TIMESTAMP},
+      timeout_remark = #{timeoutRemark,jdbcType=LONGVARCHAR},
+      offline_reason = #{offlineReason,jdbcType=LONGVARCHAR},
+      offline_remark = #{offlineRemark,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

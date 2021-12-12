@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mes.mapper.MesCleaningMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.mes.domain.MesCleaning">
+    <!--@mbg.generated-->
+    <!--@Table mes_cleaning-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="production_order_id" jdbcType="BIGINT" property="productionOrderId" />
+    <result column="slice_id" jdbcType="BIGINT" property="sliceId" />
+    <result column="degumming_time" jdbcType="TIMESTAMP" property="degummingTime" />
+    <result column="batch_no" jdbcType="VARCHAR" property="batchNo" />
+    <result column="degumming_machine" jdbcType="VARCHAR" property="degummingMachine" />
+    <result column="degumming_user" jdbcType="VARCHAR" property="degummingUser" />
+    <result column="degumming_batch" jdbcType="VARCHAR" property="degummingBatch" />
+    <result column="knife_no" jdbcType="VARCHAR" property="knifeNo" />
+    <result column="slice_loss" jdbcType="DOUBLE" property="sliceLoss" />
+    <result column="cleaning_line" jdbcType="VARCHAR" property="cleaningLine" />
+    <result column="cleaning_user" jdbcType="VARCHAR" property="cleaningUser" />
+    <result column="in_piece_count" jdbcType="INTEGER" property="inPieceCount" />
+    <result column="out_piece_count" jdbcType="INTEGER" property="outPieceCount" />
+    <result column="cleaning_batch" jdbcType="VARCHAR" property="cleaningBatch" />
+    <result column="numbers" jdbcType="INTEGER" property="numbers" />
+    <result column="degumming_baloss" jdbcType="DOUBLE" property="degummingBaloss" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, production_order_id, slice_id, degumming_time, batch_no, degumming_machine, degumming_user, 
+    degumming_batch, knife_no, slice_loss, cleaning_line, cleaning_user, in_piece_count, 
+    out_piece_count, cleaning_batch, numbers, degumming_baloss
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from mes_cleaning
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from mes_cleaning
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.mes.domain.MesCleaning" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into mes_cleaning
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productionOrderId != null">
+        production_order_id,
+      </if>
+      <if test="sliceId != null">
+        slice_id,
+      </if>
+      <if test="degummingTime != null">
+        degumming_time,
+      </if>
+      <if test="batchNo != null">
+        batch_no,
+      </if>
+      <if test="degummingMachine != null">
+        degumming_machine,
+      </if>
+      <if test="degummingUser != null">
+        degumming_user,
+      </if>
+      <if test="degummingBatch != null">
+        degumming_batch,
+      </if>
+      <if test="knifeNo != null">
+        knife_no,
+      </if>
+      <if test="sliceLoss != null">
+        slice_loss,
+      </if>
+      <if test="cleaningLine != null">
+        cleaning_line,
+      </if>
+      <if test="cleaningUser != null">
+        cleaning_user,
+      </if>
+      <if test="inPieceCount != null">
+        in_piece_count,
+      </if>
+      <if test="outPieceCount != null">
+        out_piece_count,
+      </if>
+      <if test="cleaningBatch != null">
+        cleaning_batch,
+      </if>
+      <if test="numbers != null">
+        numbers,
+      </if>
+      <if test="degummingBaloss != null">
+        degumming_baloss,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productionOrderId != null">
+        #{productionOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="sliceId != null">
+        #{sliceId,jdbcType=BIGINT},
+      </if>
+      <if test="degummingTime != null">
+        #{degummingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="batchNo != null">
+        #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="degummingMachine != null">
+        #{degummingMachine,jdbcType=VARCHAR},
+      </if>
+      <if test="degummingUser != null">
+        #{degummingUser,jdbcType=VARCHAR},
+      </if>
+      <if test="degummingBatch != null">
+        #{degummingBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="knifeNo != null">
+        #{knifeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sliceLoss != null">
+        #{sliceLoss,jdbcType=DOUBLE},
+      </if>
+      <if test="cleaningLine != null">
+        #{cleaningLine,jdbcType=VARCHAR},
+      </if>
+      <if test="cleaningUser != null">
+        #{cleaningUser,jdbcType=VARCHAR},
+      </if>
+      <if test="inPieceCount != null">
+        #{inPieceCount,jdbcType=INTEGER},
+      </if>
+      <if test="outPieceCount != null">
+        #{outPieceCount,jdbcType=INTEGER},
+      </if>
+      <if test="cleaningBatch != null">
+        #{cleaningBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="numbers != null">
+        #{numbers,jdbcType=INTEGER},
+      </if>
+      <if test="degummingBaloss != null">
+        #{degummingBaloss,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ruoyi.mes.domain.MesCleaning">
+    <!--@mbg.generated-->
+    update mes_cleaning
+    <set>
+      <if test="productionOrderId != null">
+        production_order_id = #{productionOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="sliceId != null">
+        slice_id = #{sliceId,jdbcType=BIGINT},
+      </if>
+      <if test="degummingTime != null">
+        degumming_time = #{degummingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="batchNo != null">
+        batch_no = #{batchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="degummingMachine != null">
+        degumming_machine = #{degummingMachine,jdbcType=VARCHAR},
+      </if>
+      <if test="degummingUser != null">
+        degumming_user = #{degummingUser,jdbcType=VARCHAR},
+      </if>
+      <if test="degummingBatch != null">
+        degumming_batch = #{degummingBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="knifeNo != null">
+        knife_no = #{knifeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sliceLoss != null">
+        slice_loss = #{sliceLoss,jdbcType=DOUBLE},
+      </if>
+      <if test="cleaningLine != null">
+        cleaning_line = #{cleaningLine,jdbcType=VARCHAR},
+      </if>
+      <if test="cleaningUser != null">
+        cleaning_user = #{cleaningUser,jdbcType=VARCHAR},
+      </if>
+      <if test="inPieceCount != null">
+        in_piece_count = #{inPieceCount,jdbcType=INTEGER},
+      </if>
+      <if test="outPieceCount != null">
+        out_piece_count = #{outPieceCount,jdbcType=INTEGER},
+      </if>
+      <if test="cleaningBatch != null">
+        cleaning_batch = #{cleaningBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="numbers != null">
+        numbers = #{numbers,jdbcType=INTEGER},
+      </if>
+      <if test="degummingBaloss != null">
+        degumming_baloss = #{degummingBaloss,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ruoyi.mes.domain.MesCleaning">
+    <!--@mbg.generated-->
+    update mes_cleaning
+    set production_order_id = #{productionOrderId,jdbcType=BIGINT},
+      slice_id = #{sliceId,jdbcType=BIGINT},
+      degumming_time = #{degummingTime,jdbcType=TIMESTAMP},
+      batch_no = #{batchNo,jdbcType=VARCHAR},
+      degumming_machine = #{degummingMachine,jdbcType=VARCHAR},
+      degumming_user = #{degummingUser,jdbcType=VARCHAR},
+      degumming_batch = #{degummingBatch,jdbcType=VARCHAR},
+      knife_no = #{knifeNo,jdbcType=VARCHAR},
+      slice_loss = #{sliceLoss,jdbcType=DOUBLE},
+      cleaning_line = #{cleaningLine,jdbcType=VARCHAR},
+      cleaning_user = #{cleaningUser,jdbcType=VARCHAR},
+      in_piece_count = #{inPieceCount,jdbcType=INTEGER},
+      out_piece_count = #{outPieceCount,jdbcType=INTEGER},
+      cleaning_batch = #{cleaningBatch,jdbcType=VARCHAR},
+      numbers = #{numbers,jdbcType=INTEGER},
+      degumming_baloss = #{degummingBaloss,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
