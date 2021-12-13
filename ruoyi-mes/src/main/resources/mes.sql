@@ -1,5 +1,5 @@
-drop table if exists mes_production_order;
-create table mes_production_order
+drop table if exists mes_crystal;
+create table mes_crystal
 (
     id               bigint primary key not null auto_increment comment '主键',
     layer_number     int comment '层数',
@@ -25,6 +25,26 @@ create table mes_production_order
     heat_number      int comment '炉号',
     area             varchar(16) comment '区域'
 ) engine = innodb
+  charset = utf8 comment = '原始晶棒入库表';
+
+-- 生产指令表
+drop table if exists mes_production_order;
+create table mes_production_order
+(
+    id                 bigint primary key not null auto_increment comment '主键',
+    crystal_id         bigint             not null comment '晶棒ID',
+    crystal_batch      varchar(16) comment '晶棒批次',
+    crystal_spec       varchar(16) comment '晶棒规格',
+    resistivity        varchar(16) comment '电阻率Ω㎝',
+    side_length        double(10, 2) comment '边长mm',
+    slice_thick_ness   double(10, 2) comment '片厚μm',
+    order_batch        varchar(16) comment '订单批次',
+    spec_code          varchar(16) comment '规格代码',
+    experiments        varchar(16) comment '实验发起',
+    type_experiments   varchar(16) comment '实验发起',
+    name_experiments   varchar(16) comment '实验名称',
+    production_remarks varchar(128) comment '备注'
+) engine = innodb
   charset = utf8 comment = '生产指令';
 
 
@@ -33,7 +53,7 @@ drop table if exists mes_matchingpost;
 create table mes_matchingpost
 (
     id                  bigint primary key not null auto_increment comment '主键',
-    production_order_id bigint             not null comment '晶棒ID',
+    production_order_id bigint             not null comment '指令ID',
     match_date          varchar(16) comment '配棒日期',
     match_time          varchar(16) comment '配棒时间',
     numbers             varchar(16) comment '根数',
@@ -50,7 +70,7 @@ drop table if exists mes_glue_stick;
 create table mes_glue_stick
 (
     id                  bigint primary key not null auto_increment comment '主键',
-    production_order_id bigint             not null comment '晶棒ID',
+    production_order_id bigint             not null comment '指令ID',
     glue_stick_date     varchar(16) comment '粘棒日期',
     team                varchar(16) comment '班组',
     person              varchar(16) comment '粘棒人员',
@@ -72,7 +92,7 @@ drop table if exists mes_slice;
 create table mes_slice
 (
     id                   bigint primary key not null auto_increment comment '主键',
-    production_order_id  bigint             not null comment '晶棒ID',
+    production_order_id  bigint             not null comment '指令ID',
     date                 varchar(16) comment ' 切片日期',
     team                 varchar(16) comment ' 班组',
     slot_pitch           double(10, 2) comment ' 槽距',
@@ -107,7 +127,7 @@ drop table if exists mes_cleaning;
 create table mes_cleaning
 (
     id                  bigint primary key not null auto_increment comment '主键',
-    production_order_id bigint             not null comment '晶棒ID',
+    production_order_id bigint             not null comment '指令ID',
     slice_id            bigint             not null comment '切片ID', -- 因为有个刀次，考虑下是否需要？
     degumming_time      datetime comment '脱胶日期',
     batch_no            varchar(32) comment '班次',
@@ -131,7 +151,7 @@ drop table if exists mes_production_order_check;
 create table mes_production_order_check
 (
     id                  bigint primary key not null auto_increment comment '主键',
-    production_order_id bigint             not null comment '晶棒ID',
+    production_order_id bigint             not null comment '指令ID',
     check_date          datetime comment '检验日期',
     batch               varchar(32) comment '班组',
     machine             varchar(32) comment '机台',
@@ -156,7 +176,7 @@ drop table if exists mes_production_order_check_detail;
 create table mes_production_order_check_detail
 (
     id                        bigint primary key not null auto_increment comment '主键',
-    production_order_id       bigint             not null comment '晶棒ID',
+    production_order_id       bigint             not null comment '指令ID',
     production_order_check_id bigint             not null comment '捡包ID',
     type                      varchar(32) comment '等级',
     a_numbers                 int comment 'A片数',

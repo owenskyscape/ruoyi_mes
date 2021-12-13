@@ -1,16 +1,13 @@
 package com.ruoyi.mes.domain;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * 生产指令
- * @author DaiChao
  */
 @Data
 public class MesProductionOrder implements Serializable {
@@ -22,112 +19,62 @@ public class MesProductionOrder implements Serializable {
     private Long id;
 
     /**
-     * 层数
+     * 晶棒ID
      */
-    private Integer layerNumber;
+    private Long crystalId;
 
     /**
-     * 晶体编号
+     * 晶棒批次
      */
-    private String code;
+    private String crystalBatch;
 
     /**
-     * 型号
+     * 晶棒规格
      */
-    private String model;
+    private String crystalSpec;
 
     /**
-     * 规格
-     */
-    private String spec;
-
-    /**
-     * 中心电阻率（上）
-     */
-    private Double upResistivity;
-
-    /**
-     * 中心电阻率（下）
-     */
-    private Double downResistivity;
-
-    /**
-     * 表皮电阻（上）
-     */
-    private Double upResistance;
-
-    /**
-     * 表皮电阻（下）
-     */
-    private Double downResistance;
-
-    /**
-     * 直径（最小）
-     */
-    private Integer minDia;
-
-    /**
-     * 直径（最大）
-     */
-    private Integer maxDia;
-
-    /**
-     * 寿命（上）
-     */
-    private Integer upLife;
-
-    /**
-     * 寿命（下）
-     */
-    private Integer downLife;
-
-    /**
-     * 合格长度mm
-     */
-    private Integer passLength;
-
-    /**
-     * 重量kg
-     */
-    private Double weight;
-
-    /**
-     * 边距MIN
-     */
-    private Double minMargin;
-
-    /**
-     * 边距MAX
-     */
-    private Double maxMargin;
-
-    /**
-     * 备注
-     */
-    private String remark;
-
-    /**
-     * 入库等级
-     */
-    private String inLevel;
-
-    /**
-     * 电阻率
+     * 电阻率Ω㎝
      */
     private String resistivity;
 
     /**
-     * 入库日期
+     * 边长mm
      */
-    private Date inStoreData;
+    private Double sideLength;
 
     /**
-     * 炉号
+     * 片厚μm
      */
-    private Integer heatNumber;
+    private Double sliceThickNess;
 
     /**
-     * 区域
+     * 订单批次
      */
-    private String area;
+    private String orderBatch;
+
+    /**
+     * 规格代码
+     */
+    private String specCode;
+
+    /**
+     * 实验发起
+     */
+    private String experiments;
+
+    /**
+     * 实验发起
+     */
+    private String typeExperiments;
+
+    /**
+     * 实验名称
+     */
+    private String nameExperiments;
+
+    /**
+     * 备注
+     */
+    private String productionRemarks;
 }
