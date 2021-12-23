@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mes.mapper.MesProductionOrderMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.mes.domain.MesProductionOrder">
+    <!--@mbg.generated-->
+    <!--@Table mes_production_order-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="crystal_id" jdbcType="BIGINT" property="crystalId" />
+    <result column="crystal_batch" jdbcType="VARCHAR" property="crystalBatch" />
+    <result column="crystal_spec" jdbcType="VARCHAR" property="crystalSpec" />
+    <result column="resistivity" jdbcType="VARCHAR" property="resistivity" />
+    <result column="side_length" jdbcType="DOUBLE" property="sideLength" />
+    <result column="slice_thick_ness" jdbcType="DOUBLE" property="sliceThickNess" />
+    <result column="order_batch" jdbcType="VARCHAR" property="orderBatch" />
+    <result column="spec_code" jdbcType="VARCHAR" property="specCode" />
+    <result column="experiments" jdbcType="VARCHAR" property="experiments" />
+    <result column="type_experiments" jdbcType="VARCHAR" property="typeExperiments" />
+    <result column="name_experiments" jdbcType="VARCHAR" property="nameExperiments" />
+    <result column="production_remarks" jdbcType="VARCHAR" property="productionRemarks" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, crystal_id, crystal_batch, crystal_spec, resistivity, side_length, slice_thick_ness, 
+    order_batch, spec_code, experiments, type_experiments, name_experiments, production_remarks
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from mes_production_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from mes_production_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.mes.domain.MesProductionOrder" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into mes_production_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="crystalId != null">
+        crystal_id,
+      </if>
+      <if test="crystalBatch != null">
+        crystal_batch,
+      </if>
+      <if test="crystalSpec != null">
+        crystal_spec,
+      </if>
+      <if test="resistivity != null">
+        resistivity,
+      </if>
+      <if test="sideLength != null">
+        side_length,
+      </if>
+      <if test="sliceThickNess != null">
+        slice_thick_ness,
+      </if>
+      <if test="orderBatch != null">
+        order_batch,
+      </if>
+      <if test="specCode != null">
+        spec_code,
+      </if>
+      <if test="experiments != null">
+        experiments,
+      </if>
+      <if test="typeExperiments != null">
+        type_experiments,
+      </if>
+      <if test="nameExperiments != null">
+        name_experiments,
+      </if>
+      <if test="productionRemarks != null">
+        production_remarks,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="crystalId != null">
+        #{crystalId,jdbcType=BIGINT},
+      </if>
+      <if test="crystalBatch != null">
+        #{crystalBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="crystalSpec != null">
+        #{crystalSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="resistivity != null">
+        #{resistivity,jdbcType=VARCHAR},
+      </if>
+      <if test="sideLength != null">
+        #{sideLength,jdbcType=DOUBLE},
+      </if>
+      <if test="sliceThickNess != null">
+        #{sliceThickNess,jdbcType=DOUBLE},
+      </if>
+      <if test="orderBatch != null">
+        #{orderBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="specCode != null">
+        #{specCode,jdbcType=VARCHAR},
+      </if>
+      <if test="experiments != null">
+        #{experiments,jdbcType=VARCHAR},
+      </if>
+      <if test="typeExperiments != null">
+        #{typeExperiments,jdbcType=VARCHAR},
+      </if>
+      <if test="nameExperiments != null">
+        #{nameExperiments,jdbcType=VARCHAR},
+      </if>
+      <if test="productionRemarks != null">
+        #{productionRemarks,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ruoyi.mes.domain.MesProductionOrder">
+    <!--@mbg.generated-->
+    update mes_production_order
+    <set>
+      <if test="crystalId != null">
+        crystal_id = #{crystalId,jdbcType=BIGINT},
+      </if>
+      <if test="crystalBatch != null">
+        crystal_batch = #{crystalBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="crystalSpec != null">
+        crystal_spec = #{crystalSpec,jdbcType=VARCHAR},
+      </if>
+      <if test="resistivity != null">
+        resistivity = #{resistivity,jdbcType=VARCHAR},
+      </if>
+      <if test="sideLength != null">
+        side_length = #{sideLength,jdbcType=DOUBLE},
+      </if>
+      <if test="sliceThickNess != null">
+        slice_thick_ness = #{sliceThickNess,jdbcType=DOUBLE},
+      </if>
+      <if test="orderBatch != null">
+        order_batch = #{orderBatch,jdbcType=VARCHAR},
+      </if>
+      <if test="specCode != null">
+        spec_code = #{specCode,jdbcType=VARCHAR},
+      </if>
+      <if test="experiments != null">
+        experiments = #{experiments,jdbcType=VARCHAR},
+      </if>
+      <if test="typeExperiments != null">
+        type_experiments = #{typeExperiments,jdbcType=VARCHAR},
+      </if>
+      <if test="nameExperiments != null">
+        name_experiments = #{nameExperiments,jdbcType=VARCHAR},
+      </if>
+      <if test="productionRemarks != null">
+        production_remarks = #{productionRemarks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ruoyi.mes.domain.MesProductionOrder">
+    <!--@mbg.generated-->
+    update mes_production_order
+    set crystal_id = #{crystalId,jdbcType=BIGINT},
+      crystal_batch = #{crystalBatch,jdbcType=VARCHAR},
+      crystal_spec = #{crystalSpec,jdbcType=VARCHAR},
+      resistivity = #{resistivity,jdbcType=VARCHAR},
+      side_length = #{sideLength,jdbcType=DOUBLE},
+      slice_thick_ness = #{sliceThickNess,jdbcType=DOUBLE},
+      order_batch = #{orderBatch,jdbcType=VARCHAR},
+      spec_code = #{specCode,jdbcType=VARCHAR},
+      experiments = #{experiments,jdbcType=VARCHAR},
+      type_experiments = #{typeExperiments,jdbcType=VARCHAR},
+      name_experiments = #{nameExperiments,jdbcType=VARCHAR},
+      production_remarks = #{productionRemarks,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

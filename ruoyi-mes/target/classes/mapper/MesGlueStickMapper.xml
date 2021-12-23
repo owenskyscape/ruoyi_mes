@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mes.mapper.MesGlueStickMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.mes.domain.MesGlueStick">
+    <!--@mbg.generated-->
+    <!--@Table mes_glue_stick-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="production_order_id" jdbcType="BIGINT" property="productionOrderId" />
+    <result column="glue_stick_date" jdbcType="VARCHAR" property="glueStickDate" />
+    <result column="team" jdbcType="VARCHAR" property="team" />
+    <result column="person" jdbcType="VARCHAR" property="person" />
+    <result column="viscose_time" jdbcType="VARCHAR" property="viscoseTime" />
+    <result column="boiled_glue_batch_no" jdbcType="VARCHAR" property="boiledGlueBatchNo" />
+    <result column="viscose_batch_no" jdbcType="VARCHAR" property="viscoseBatchNo" />
+    <result column="glue_stick_batch_no" jdbcType="VARCHAR" property="glueStickBatchNo" />
+    <result column="boiled_glue_dosage" jdbcType="VARCHAR" property="boiledGlueDosage" />
+    <result column="a_dosage" jdbcType="VARCHAR" property="aDosage" />
+    <result column="b_dosage" jdbcType="VARCHAR" property="bDosage" />
+    <result column="length" jdbcType="DOUBLE" property="length" />
+    <result column="material" jdbcType="VARCHAR" property="material" />
+    <result column="tray_batch_no" jdbcType="VARCHAR" property="trayBatchNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, production_order_id, glue_stick_date, team, person, viscose_time, boiled_glue_batch_no, 
+    viscose_batch_no, glue_stick_batch_no, boiled_glue_dosage, a_dosage, b_dosage, `length`, 
+    material, tray_batch_no
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from mes_glue_stick
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from mes_glue_stick
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.mes.domain.MesGlueStick" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into mes_glue_stick
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productionOrderId != null">
+        production_order_id,
+      </if>
+      <if test="glueStickDate != null">
+        glue_stick_date,
+      </if>
+      <if test="team != null">
+        team,
+      </if>
+      <if test="person != null">
+        person,
+      </if>
+      <if test="viscoseTime != null">
+        viscose_time,
+      </if>
+      <if test="boiledGlueBatchNo != null">
+        boiled_glue_batch_no,
+      </if>
+      <if test="viscoseBatchNo != null">
+        viscose_batch_no,
+      </if>
+      <if test="glueStickBatchNo != null">
+        glue_stick_batch_no,
+      </if>
+      <if test="boiledGlueDosage != null">
+        boiled_glue_dosage,
+      </if>
+      <if test="aDosage != null">
+        a_dosage,
+      </if>
+      <if test="bDosage != null">
+        b_dosage,
+      </if>
+      <if test="length != null">
+        `length`,
+      </if>
+      <if test="material != null">
+        material,
+      </if>
+      <if test="trayBatchNo != null">
+        tray_batch_no,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productionOrderId != null">
+        #{productionOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="glueStickDate != null">
+        #{glueStickDate,jdbcType=VARCHAR},
+      </if>
+      <if test="team != null">
+        #{team,jdbcType=VARCHAR},
+      </if>
+      <if test="person != null">
+        #{person,jdbcType=VARCHAR},
+      </if>
+      <if test="viscoseTime != null">
+        #{viscoseTime,jdbcType=VARCHAR},
+      </if>
+      <if test="boiledGlueBatchNo != null">
+        #{boiledGlueBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="viscoseBatchNo != null">
+        #{viscoseBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="glueStickBatchNo != null">
+        #{glueStickBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="boiledGlueDosage != null">
+        #{boiledGlueDosage,jdbcType=VARCHAR},
+      </if>
+      <if test="aDosage != null">
+        #{aDosage,jdbcType=VARCHAR},
+      </if>
+      <if test="bDosage != null">
+        #{bDosage,jdbcType=VARCHAR},
+      </if>
+      <if test="length != null">
+        #{length,jdbcType=DOUBLE},
+      </if>
+      <if test="material != null">
+        #{material,jdbcType=VARCHAR},
+      </if>
+      <if test="trayBatchNo != null">
+        #{trayBatchNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ruoyi.mes.domain.MesGlueStick">
+    <!--@mbg.generated-->
+    update mes_glue_stick
+    <set>
+      <if test="productionOrderId != null">
+        production_order_id = #{productionOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="glueStickDate != null">
+        glue_stick_date = #{glueStickDate,jdbcType=VARCHAR},
+      </if>
+      <if test="team != null">
+        team = #{team,jdbcType=VARCHAR},
+      </if>
+      <if test="person != null">
+        person = #{person,jdbcType=VARCHAR},
+      </if>
+      <if test="viscoseTime != null">
+        viscose_time = #{viscoseTime,jdbcType=VARCHAR},
+      </if>
+      <if test="boiledGlueBatchNo != null">
+        boiled_glue_batch_no = #{boiledGlueBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="viscoseBatchNo != null">
+        viscose_batch_no = #{viscoseBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="glueStickBatchNo != null">
+        glue_stick_batch_no = #{glueStickBatchNo,jdbcType=VARCHAR},
+      </if>
+      <if test="boiledGlueDosage != null">
+        boiled_glue_dosage = #{boiledGlueDosage,jdbcType=VARCHAR},
+      </if>
+      <if test="aDosage != null">
+        a_dosage = #{aDosage,jdbcType=VARCHAR},
+      </if>
+      <if test="bDosage != null">
+        b_dosage = #{bDosage,jdbcType=VARCHAR},
+      </if>
+      <if test="length != null">
+        `length` = #{length,jdbcType=DOUBLE},
+      </if>
+      <if test="material != null">
+        material = #{material,jdbcType=VARCHAR},
+      </if>
+      <if test="trayBatchNo != null">
+        tray_batch_no = #{trayBatchNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ruoyi.mes.domain.MesGlueStick">
+    <!--@mbg.generated-->
+    update mes_glue_stick
+    set production_order_id = #{productionOrderId,jdbcType=BIGINT},
+      glue_stick_date = #{glueStickDate,jdbcType=VARCHAR},
+      team = #{team,jdbcType=VARCHAR},
+      person = #{person,jdbcType=VARCHAR},
+      viscose_time = #{viscoseTime,jdbcType=VARCHAR},
+      boiled_glue_batch_no = #{boiledGlueBatchNo,jdbcType=VARCHAR},
+      viscose_batch_no = #{viscoseBatchNo,jdbcType=VARCHAR},
+      glue_stick_batch_no = #{glueStickBatchNo,jdbcType=VARCHAR},
+      boiled_glue_dosage = #{boiledGlueDosage,jdbcType=VARCHAR},
+      a_dosage = #{aDosage,jdbcType=VARCHAR},
+      b_dosage = #{bDosage,jdbcType=VARCHAR},
+      `length` = #{length,jdbcType=DOUBLE},
+      material = #{material,jdbcType=VARCHAR},
+      tray_batch_no = #{trayBatchNo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

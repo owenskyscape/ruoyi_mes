@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mes.mapper.MesProductionOrderCheckMapper">
+  <resultMap id="BaseResultMap" type="com.ruoyi.mes.domain.MesProductionOrderCheck">
+    <!--@mbg.generated-->
+    <!--@Table mes_production_order_check-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="production_order_id" jdbcType="BIGINT" property="productionOrderId" />
+    <result column="check_date" jdbcType="TIMESTAMP" property="checkDate" />
+    <result column="batch" jdbcType="VARCHAR" property="batch" />
+    <result column="machine" jdbcType="VARCHAR" property="machine" />
+    <result column="receive_numbers" jdbcType="VARCHAR" property="receiveNumbers" />
+    <result column="operation_user" jdbcType="VARCHAR" property="operationUser" />
+    <result column="cleaning_loss" jdbcType="INTEGER" property="cleaningLoss" />
+    <result column="sorting_user" jdbcType="VARCHAR" property="sortingUser" />
+    <result column="machine_loss" jdbcType="VARCHAR" property="machineLoss" />
+    <result column="package_user" jdbcType="VARCHAR" property="packageUser" />
+    <result column="qc" jdbcType="VARCHAR" property="qc" />
+    <result column="error_project" jdbcType="VARCHAR" property="errorProject" />
+    <result column="wafer_location" jdbcType="VARCHAR" property="waferLocation" />
+    <result column="crystal_location" jdbcType="VARCHAR" property="crystalLocation" />
+    <result column="remark" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, production_order_id, check_date, batch, machine, receive_numbers, operation_user, 
+    cleaning_loss, sorting_user, machine_loss, package_user, qc, error_project, wafer_location, 
+    crystal_location, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from mes_production_order_check
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from mes_production_order_check
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ruoyi.mes.domain.MesProductionOrderCheck" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into mes_production_order_check
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productionOrderId != null">
+        production_order_id,
+      </if>
+      <if test="checkDate != null">
+        check_date,
+      </if>
+      <if test="batch != null">
+        batch,
+      </if>
+      <if test="machine != null">
+        machine,
+      </if>
+      <if test="receiveNumbers != null">
+        receive_numbers,
+      </if>
+      <if test="operationUser != null">
+        operation_user,
+      </if>
+      <if test="cleaningLoss != null">
+        cleaning_loss,
+      </if>
+      <if test="sortingUser != null">
+        sorting_user,
+      </if>
+      <if test="machineLoss != null">
+        machine_loss,
+      </if>
+      <if test="packageUser != null">
+        package_user,
+      </if>
+      <if test="qc != null">
+        qc,
+      </if>
+      <if test="errorProject != null">
+        error_project,
+      </if>
+      <if test="waferLocation != null">
+        wafer_location,
+      </if>
+      <if test="crystalLocation != null">
+        crystal_location,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productionOrderId != null">
+        #{productionOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="checkDate != null">
+        #{checkDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="batch != null">
+        #{batch,jdbcType=VARCHAR},
+      </if>
+      <if test="machine != null">
+        #{machine,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveNumbers != null">
+        #{receiveNumbers,jdbcType=VARCHAR},
+      </if>
+      <if test="operationUser != null">
+        #{operationUser,jdbcType=VARCHAR},
+      </if>
+      <if test="cleaningLoss != null">
+        #{cleaningLoss,jdbcType=INTEGER},
+      </if>
+      <if test="sortingUser != null">
+        #{sortingUser,jdbcType=VARCHAR},
+      </if>
+      <if test="machineLoss != null">
+        #{machineLoss,jdbcType=VARCHAR},
+      </if>
+      <if test="packageUser != null">
+        #{packageUser,jdbcType=VARCHAR},
+      </if>
+      <if test="qc != null">
+        #{qc,jdbcType=VARCHAR},
+      </if>
+      <if test="errorProject != null">
+        #{errorProject,jdbcType=VARCHAR},
+      </if>
+      <if test="waferLocation != null">
+        #{waferLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="crystalLocation != null">
+        #{crystalLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ruoyi.mes.domain.MesProductionOrderCheck">
+    <!--@mbg.generated-->
+    update mes_production_order_check
+    <set>
+      <if test="productionOrderId != null">
+        production_order_id = #{productionOrderId,jdbcType=BIGINT},
+      </if>
+      <if test="checkDate != null">
+        check_date = #{checkDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="batch != null">
+        batch = #{batch,jdbcType=VARCHAR},
+      </if>
+      <if test="machine != null">
+        machine = #{machine,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveNumbers != null">
+        receive_numbers = #{receiveNumbers,jdbcType=VARCHAR},
+      </if>
+      <if test="operationUser != null">
+        operation_user = #{operationUser,jdbcType=VARCHAR},
+      </if>
+      <if test="cleaningLoss != null">
+        cleaning_loss = #{cleaningLoss,jdbcType=INTEGER},
+      </if>
+      <if test="sortingUser != null">
+        sorting_user = #{sortingUser,jdbcType=VARCHAR},
+      </if>
+      <if test="machineLoss != null">
+        machine_loss = #{machineLoss,jdbcType=VARCHAR},
+      </if>
+      <if test="packageUser != null">
+        package_user = #{packageUser,jdbcType=VARCHAR},
+      </if>
+      <if test="qc != null">
+        qc = #{qc,jdbcType=VARCHAR},
+      </if>
+      <if test="errorProject != null">
+        error_project = #{errorProject,jdbcType=VARCHAR},
+      </if>
+      <if test="waferLocation != null">
+        wafer_location = #{waferLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="crystalLocation != null">
+        crystal_location = #{crystalLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ruoyi.mes.domain.MesProductionOrderCheck">
+    <!--@mbg.generated-->
+    update mes_production_order_check
+    set production_order_id = #{productionOrderId,jdbcType=BIGINT},
+      check_date = #{checkDate,jdbcType=TIMESTAMP},
+      batch = #{batch,jdbcType=VARCHAR},
+      machine = #{machine,jdbcType=VARCHAR},
+      receive_numbers = #{receiveNumbers,jdbcType=VARCHAR},
+      operation_user = #{operationUser,jdbcType=VARCHAR},
+      cleaning_loss = #{cleaningLoss,jdbcType=INTEGER},
+      sorting_user = #{sortingUser,jdbcType=VARCHAR},
+      machine_loss = #{machineLoss,jdbcType=VARCHAR},
+      package_user = #{packageUser,jdbcType=VARCHAR},
+      qc = #{qc,jdbcType=VARCHAR},
+      error_project = #{errorProject,jdbcType=VARCHAR},
+      wafer_location = #{waferLocation,jdbcType=VARCHAR},
+      crystal_location = #{crystalLocation,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
