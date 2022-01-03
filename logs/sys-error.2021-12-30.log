@@ -1,1 +1,0 @@
-18:57:15.938 [QuartzScheduler_RuoyiScheduler-DESKTOP-KVMPR0Q1640589707717_ClusterManager] ERROR c.a.d.f.s.StatFilter - [internalAfterStatementExecute,523] - slow sql 1009 millis. SELECT 1 FROM DUAL[]
