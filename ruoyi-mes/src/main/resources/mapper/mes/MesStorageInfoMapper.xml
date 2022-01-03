@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mes.mapper.MesStorageInfoMapper">
+    
+    <resultMap type="MesStorageInfo" id="MesStorageInfoResult">
+        <result property="id"    column="id"    />
+        <result property="storageLocation"    column="storage_location"    />
+        <result property="crystalCode"    column="crystal_code"    />
+        <result property="spec"    column="spec"    />
+        <result property="type"    column="type"    />
+        <result property="length"    column="length"    />
+        <result property="thicknessSplice"    column="thickness_splice"    />
+        <result property="slicerModel"    column="slicer_model"    />
+        <result property="warehousingTime"    column="warehousing_time"    />
+        <result property="curingTime"    column="curing_time"    />
+        <result property="storageLocationState"    column="storage_location_state"    />
+        <result property="code"    column="code"    />
+        <result property="model"    column="model"    />
+        <result property="spec1"    column="spec1"    />
+        <result property="storageLocation1"    column="storage_location1"    />
+        <result property="type1"    column="type1"    />
+        <result property="length1"    column="length1"    />
+        <result property="thicknessSplice1"    column="thickness_splice1"    />
+        <result property="slicerModel1"    column="slicer_model1"    />
+        <result property="isConnectible1"    column="is_connectible1"    />
+        <result property="connectibleCount1"    column="connectible_count1"    />
+        <result property="connectionType1"    column="connection_type1"    />
+        <result property="workingTime1"    column="working_time1"    />
+        <result property="transmittingState1"    column="transmitting_state1"    />
+        <result property="storageState1"    column="storage_state1"    />
+    </resultMap>
+
+    <sql id="selectMesStorageInfoVo">
+        select id, storage_location, crystal_code, spec, type, length, thickness_splice, slicer_model, warehousing_time, curing_time, storage_location_state, code, model, spec1, storage_location1, type1, length1, thickness_splice1, slicer_model1, is_connectible1, connectible_count1, connection_type1, working_time1, transmitting_state1, storage_state1 from mes_storage_info
+    </sql>
+
+    <select id="selectMesStorageInfoList" parameterType="MesStorageInfo" resultMap="MesStorageInfoResult">
+        <include refid="selectMesStorageInfoVo"/>
+        <where>  
+            <if test="storageLocation != null  and storageLocation != ''"> and storage_location = #{storageLocation}</if>
+            <if test="crystalCode != null  and crystalCode != ''"> and crystal_code = #{crystalCode}</if>
+            <if test="spec != null  and spec != ''"> and spec = #{spec}</if>
+            <if test="type != null  and type != ''"> and type = #{type}</if>
+            <if test="length != null "> and length = #{length}</if>
+            <if test="thicknessSplice != null  and thicknessSplice != ''"> and thickness_splice = #{thicknessSplice}</if>
+            <if test="slicerModel != null  and slicerModel != ''"> and slicer_model = #{slicerModel}</if>
+            <if test="warehousingTime != null "> and warehousing_time = #{warehousingTime}</if>
+            <if test="curingTime != null "> and curing_time = #{curingTime}</if>
+            <if test="storageLocationState != null  and storageLocationState != ''"> and storage_location_state = #{storageLocationState}</if>
+        </where>
+    </select>
+    
+    <select id="selectMesStorageInfoById" parameterType="Long" resultMap="MesStorageInfoResult">
+        <include refid="selectMesStorageInfoVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMesStorageInfo" parameterType="MesStorageInfo" useGeneratedKeys="true" keyProperty="id">
+        insert into mes_storage_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="storageLocation != null">storage_location,</if>
+            <if test="crystalCode != null">crystal_code,</if>
+            <if test="spec != null">spec,</if>
+            <if test="type != null">type,</if>
+            <if test="length != null">length,</if>
+            <if test="thicknessSplice != null">thickness_splice,</if>
+            <if test="slicerModel != null">slicer_model,</if>
+            <if test="warehousingTime != null">warehousing_time,</if>
+            <if test="curingTime != null">curing_time,</if>
+            <if test="storageLocationState != null">storage_location_state,</if>
+            <if test="code != null">code,</if>
+            <if test="model != null">model,</if>
+            <if test="spec1 != null">spec1,</if>
+            <if test="storageLocation1 != null">storage_location1,</if>
+            <if test="type1 != null">type1,</if>
+            <if test="length1 != null">length1,</if>
+            <if test="thicknessSplice1 != null">thickness_splice1,</if>
+            <if test="slicerModel1 != null">slicer_model1,</if>
+            <if test="isConnectible1 != null">is_connectible1,</if>
+            <if test="connectibleCount1 != null">connectible_count1,</if>
+            <if test="connectionType1 != null">connection_type1,</if>
+            <if test="workingTime1 != null">working_time1,</if>
+            <if test="transmittingState1 != null">transmitting_state1,</if>
+            <if test="storageState1 != null">storage_state1,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="storageLocation != null">#{storageLocation},</if>
+            <if test="crystalCode != null">#{crystalCode},</if>
+            <if test="spec != null">#{spec},</if>
+            <if test="type != null">#{type},</if>
+            <if test="length != null">#{length},</if>
+            <if test="thicknessSplice != null">#{thicknessSplice},</if>
+            <if test="slicerModel != null">#{slicerModel},</if>
+            <if test="warehousingTime != null">#{warehousingTime},</if>
+            <if test="curingTime != null">#{curingTime},</if>
+            <if test="storageLocationState != null">#{storageLocationState},</if>
+            <if test="code != null">#{code},</if>
+            <if test="model != null">#{model},</if>
+            <if test="spec1 != null">#{spec1},</if>
+            <if test="storageLocation1 != null">#{storageLocation1},</if>
+            <if test="type1 != null">#{type1},</if>
+            <if test="length1 != null">#{length1},</if>
+            <if test="thicknessSplice1 != null">#{thicknessSplice1},</if>
+            <if test="slicerModel1 != null">#{slicerModel1},</if>
+            <if test="isConnectible1 != null">#{isConnectible1},</if>
+            <if test="connectibleCount1 != null">#{connectibleCount1},</if>
+            <if test="connectionType1 != null">#{connectionType1},</if>
+            <if test="workingTime1 != null">#{workingTime1},</if>
+            <if test="transmittingState1 != null">#{transmittingState1},</if>
+            <if test="storageState1 != null">#{storageState1},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMesStorageInfo" parameterType="MesStorageInfo">
+        update mes_storage_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="storageLocation != null">storage_location = #{storageLocation},</if>
+            <if test="crystalCode != null">crystal_code = #{crystalCode},</if>
+            <if test="spec != null">spec = #{spec},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="length != null">length = #{length},</if>
+            <if test="thicknessSplice != null">thickness_splice = #{thicknessSplice},</if>
+            <if test="slicerModel != null">slicer_model = #{slicerModel},</if>
+            <if test="warehousingTime != null">warehousing_time = #{warehousingTime},</if>
+            <if test="curingTime != null">curing_time = #{curingTime},</if>
+            <if test="storageLocationState != null">storage_location_state = #{storageLocationState},</if>
+            <if test="code != null">code = #{code},</if>
+            <if test="model != null">model = #{model},</if>
+            <if test="spec1 != null">spec1 = #{spec1},</if>
+            <if test="storageLocation1 != null">storage_location1 = #{storageLocation1},</if>
+            <if test="type1 != null">type1 = #{type1},</if>
+            <if test="length1 != null">length1 = #{length1},</if>
+            <if test="thicknessSplice1 != null">thickness_splice1 = #{thicknessSplice1},</if>
+            <if test="slicerModel1 != null">slicer_model1 = #{slicerModel1},</if>
+            <if test="isConnectible1 != null">is_connectible1 = #{isConnectible1},</if>
+            <if test="connectibleCount1 != null">connectible_count1 = #{connectibleCount1},</if>
+            <if test="connectionType1 != null">connection_type1 = #{connectionType1},</if>
+            <if test="workingTime1 != null">working_time1 = #{workingTime1},</if>
+            <if test="transmittingState1 != null">transmitting_state1 = #{transmittingState1},</if>
+            <if test="storageState1 != null">storage_state1 = #{storageState1},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMesStorageInfoById" parameterType="Long">
+        delete from mes_storage_info where id = #{id}
+    </delete>
+
+    <delete id="deleteMesStorageInfoByIds" parameterType="String">
+        delete from mes_storage_info where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

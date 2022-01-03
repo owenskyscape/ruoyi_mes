@@ -1,0 +1,10 @@
+
+g
+java:S3776a"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(Ì­àx
+Z
+java:S1155">Use isEmpty() to check whether the collection is empty or not.(üÙæ—ûÿÿÿÿ
+W
+java:S1126="AReplace this if-then-else statement by a single return statement.(««½æ
+t
+java:S2293t"YReplace the type specification in this constructor call with the diamond operator ("<>").(¼”¸­þÿÿÿÿ
+V	java:S110"<This class has 6 parents which is greater than 5 authorized.(”£òáøÿÿÿÿ

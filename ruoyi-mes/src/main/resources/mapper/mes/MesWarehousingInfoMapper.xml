@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mes.mapper.MesWarehousingInfoMapper">
+    
+    <resultMap type="MesWarehousingInfo" id="MesWarehousingInfoResult">
+        <result property="id"    column="id"    />
+        <result property="crystalCode"    column="crystal_code"    />
+        <result property="spec"    column="spec"    />
+        <result property="type"    column="type"    />
+        <result property="length"    column="length"    />
+        <result property="thicknessSplice"    column="thickness_splice"    />
+        <result property="slicerModel"    column="slicer_model"    />
+        <result property="storageLocation"    column="storage_location"    />
+        <result property="warehousingTime"    column="warehousing_time"    />
+    </resultMap>
+
+    <sql id="selectMesWarehousingInfoVo">
+        select id, crystal_code, spec, type, length, thickness_splice, slicer_model, storage_location, warehousing_time from mes_warehousing_info
+    </sql>
+
+    <select id="selectMesWarehousingInfoList" parameterType="MesWarehousingInfo" resultMap="MesWarehousingInfoResult">
+        <include refid="selectMesWarehousingInfoVo"/>
+        <where>  
+            <if test="crystalCode != null  and crystalCode != ''"> and crystal_code = #{crystalCode}</if>
+            <if test="spec != null  and spec != ''"> and spec = #{spec}</if>
+            <if test="type != null  and type != ''"> and type = #{type}</if>
+            <if test="length != null "> and length = #{length}</if>
+            <if test="thicknessSplice != null  and thicknessSplice != ''"> and thickness_splice = #{thicknessSplice}</if>
+            <if test="slicerModel != null  and slicerModel != ''"> and slicer_model = #{slicerModel}</if>
+            <if test="storageLocation != null  and storageLocation != ''"> and storage_location = #{storageLocation}</if>
+            <if test="warehousingTime != null "> and warehousing_time = #{warehousingTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectMesWarehousingInfoById" parameterType="Long" resultMap="MesWarehousingInfoResult">
+        <include refid="selectMesWarehousingInfoVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMesWarehousingInfo" parameterType="MesWarehousingInfo" useGeneratedKeys="true" keyProperty="id">
+        insert into mes_warehousing_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="crystalCode != null">crystal_code,</if>
+            <if test="spec != null">spec,</if>
+            <if test="type != null">type,</if>
+            <if test="length != null">length,</if>
+            <if test="thicknessSplice != null">thickness_splice,</if>
+            <if test="slicerModel != null">slicer_model,</if>
+            <if test="storageLocation != null">storage_location,</if>
+            <if test="warehousingTime != null">warehousing_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="crystalCode != null">#{crystalCode},</if>
+            <if test="spec != null">#{spec},</if>
+            <if test="type != null">#{type},</if>
+            <if test="length != null">#{length},</if>
+            <if test="thicknessSplice != null">#{thicknessSplice},</if>
+            <if test="slicerModel != null">#{slicerModel},</if>
+            <if test="storageLocation != null">#{storageLocation},</if>
+            <if test="warehousingTime != null">#{warehousingTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMesWarehousingInfo" parameterType="MesWarehousingInfo">
+        update mes_warehousing_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="crystalCode != null">crystal_code = #{crystalCode},</if>
+            <if test="spec != null">spec = #{spec},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="length != null">length = #{length},</if>
+            <if test="thicknessSplice != null">thickness_splice = #{thicknessSplice},</if>
+            <if test="slicerModel != null">slicer_model = #{slicerModel},</if>
+            <if test="storageLocation != null">storage_location = #{storageLocation},</if>
+            <if test="warehousingTime != null">warehousing_time = #{warehousingTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMesWarehousingInfoById" parameterType="Long">
+        delete from mes_warehousing_info where id = #{id}
+    </delete>
+
+    <delete id="deleteMesWarehousingInfoByIds" parameterType="String">
+        delete from mes_warehousing_info where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

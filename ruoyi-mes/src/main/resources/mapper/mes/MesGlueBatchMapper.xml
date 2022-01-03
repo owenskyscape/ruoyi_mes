@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mes.mapper.MesGlueBatchMapper">
+    
+    <resultMap type="MesGlueBatch" id="MesGlueBatchResult">
+        <result property="id"    column="id"    />
+        <result property="mesGlueBatch"    column="mes_glue_batch"    />
+        <result property="creater"    column="creater"    />
+        <result property="creatingTime"    column="creating_time"    />
+    </resultMap>
+
+    <sql id="selectMesGlueBatchVo">
+        select id, mes_glue_batch, creater, creating_time from mes_glue_batch
+    </sql>
+
+    <select id="selectMesGlueBatchList" parameterType="MesGlueBatch" resultMap="MesGlueBatchResult">
+        <include refid="selectMesGlueBatchVo"/>
+        <where>  
+            <if test="mesGlueBatch != null  and mesGlueBatch != ''"> and mes_glue_batch = #{mesGlueBatch}</if>
+        </where>
+    </select>
+    
+    <select id="selectMesGlueBatchById" parameterType="Long" resultMap="MesGlueBatchResult">
+        <include refid="selectMesGlueBatchVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMesGlueBatch" parameterType="MesGlueBatch" useGeneratedKeys="true" keyProperty="id">
+        insert into mes_glue_batch
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="mesGlueBatch != null">mes_glue_batch,</if>
+            <if test="creater != null">creater,</if>
+            <if test="creatingTime != null">creating_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="mesGlueBatch != null">#{mesGlueBatch},</if>
+            <if test="creater != null">#{creater},</if>
+            <if test="creatingTime != null">#{creatingTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMesGlueBatch" parameterType="MesGlueBatch">
+        update mes_glue_batch
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="mesGlueBatch != null">mes_glue_batch = #{mesGlueBatch},</if>
+            <if test="creater != null">creater = #{creater},</if>
+            <if test="creatingTime != null">creating_time = #{creatingTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMesGlueBatchById" parameterType="Long">
+        delete from mes_glue_batch where id = #{id}
+    </delete>
+
+    <delete id="deleteMesGlueBatchByIds" parameterType="String">
+        delete from mes_glue_batch where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

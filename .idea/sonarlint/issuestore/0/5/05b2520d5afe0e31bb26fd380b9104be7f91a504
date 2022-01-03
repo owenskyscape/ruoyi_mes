@@ -1,0 +1,32 @@
+
+`	java:S112["FDefine and throw a dedicated exception instead of using a generic one.(èİšÙüÿÿÿÿ
+S
+java:S1155O">Use isEmpty() to check whether the collection is empty or not.( ¤n
+Y
+java:S1155U">Use isEmpty() to check whether the collection is empty or not.(Ä‚Ò¹ıÿÿÿÿ
+P
+java:S1141D"5Extract this nested try block into a separate method.(ç£êúÿÿÿÿ
+q
+java:S1128"[Remove this unused import 'com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer'.(ÿÒ‡¡
+Z
+java:S1128 "?Remove this unused import 'com.ruoyi.common.utils.StringUtils'.(Ë²èßüÿÿÿÿ
+`
+java:S1128"ERemove this unused import 'org.mybatis.spring.SqlSessionFactoryBean'.(ª”öşÿÿÿÿ
+[
+java:S1128"ERemove this unused import 'org.springframework.core.env.Environment'.(¹‡¨¹
+s
+java:S3305+"XInject this field value directly into "sqlSessionFactory", the only method that uses it.(Á¦—üÿÿÿÿ
+h
+java:S3776/"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(™”»
+P
+java:S19051":Remove this unnecessary cast to "ResourcePatternResolver".(ºİÎ½
+t
+java:S22933"YReplace the type specification in this constructor call with the diamond operator ("<>").(Èûÿÿÿÿÿÿ
+o
+java:S22938"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ä„ƒ
+o
+java:S2293Q"YReplace the type specification in this constructor call with the diamond operator ("<>").(ïµ¼û
+F
+java:S1905W"+Remove this unnecessary cast to "String[]".(ğÏ³äúÿÿÿÿ
+t
+java:S2293h"YReplace the type specification in this constructor call with the diamond operator ("<>").(µ¶Íúÿÿÿÿ

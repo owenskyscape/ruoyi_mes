@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mes.mapper.MesBoardBatchMapper">
+    
+    <resultMap type="MesBoardBatch" id="MesBoardBatchResult">
+        <result property="id"    column="id"    />
+        <result property="mesBoardBatch"    column="mes_board_batch"    />
+        <result property="creater"    column="creater"    />
+        <result property="creatingTime"    column="creating_time"    />
+        <result property="modifier"    column="modifier"    />
+        <result property="modified"    column="modified"    />
+    </resultMap>
+
+    <sql id="selectMesBoardBatchVo">
+        select id, mes_board_batch, creater, creating_time, modifier, modified from mes_board_batch
+    </sql>
+
+    <select id="selectMesBoardBatchList" parameterType="MesBoardBatch" resultMap="MesBoardBatchResult">
+        <include refid="selectMesBoardBatchVo"/>
+        <where>  
+            <if test="mesBoardBatch != null  and mesBoardBatch != ''"> and mes_board_batch like concat('%', #{mesBoardBatch}, '%')</if>
+        </where>
+    </select>
+    
+    <select id="selectMesBoardBatchById" parameterType="Long" resultMap="MesBoardBatchResult">
+        <include refid="selectMesBoardBatchVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMesBoardBatch" parameterType="MesBoardBatch" useGeneratedKeys="true" keyProperty="id">
+        insert into mes_board_batch
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="mesBoardBatch != null">mes_board_batch,</if>
+            <if test="creater != null">creater,</if>
+            <if test="creatingTime != null">creating_time,</if>
+            <if test="modifier != null">modifier,</if>
+            <if test="modified != null">modified,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="mesBoardBatch != null">#{mesBoardBatch},</if>
+            <if test="creater != null">#{creater},</if>
+            <if test="creatingTime != null">#{creatingTime},</if>
+            <if test="modifier != null">#{modifier},</if>
+            <if test="modified != null">#{modified},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMesBoardBatch" parameterType="MesBoardBatch">
+        update mes_board_batch
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="mesBoardBatch != null">mes_board_batch = #{mesBoardBatch},</if>
+            <if test="creater != null">creater = #{creater},</if>
+            <if test="creatingTime != null">creating_time = #{creatingTime},</if>
+            <if test="modifier != null">modifier = #{modifier},</if>
+            <if test="modified != null">modified = #{modified},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMesBoardBatchById" parameterType="Long">
+        delete from mes_board_batch where id = #{id}
+    </delete>
+
+    <delete id="deleteMesBoardBatchByIds" parameterType="String">
+        delete from mes_board_batch where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

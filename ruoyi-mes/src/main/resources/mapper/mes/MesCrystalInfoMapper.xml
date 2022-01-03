@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mes.mapper.MesCrystalInfoMapper">
+    
+    <resultMap type="MesCrystalInfo" id="MesCrystalInfoResult">
+        <result property="id"    column="id"    />
+        <result property="code"    column="code"    />
+        <result property="model"    column="model"    />
+        <result property="length"    column="length"    />
+        <result property="type"    column="type"    />
+        <result property="spec"    column="spec"    />
+        <result property="thicknessSplice"    column="thickness_splice"    />
+        <result property="isConnectible"    column="is_connectible"    />
+        <result property="connectibleCount"    column="connectible_count"    />
+        <result property="connectionType"    column="connection_type"    />
+        <result property="slicerModel"    column="slicer_model"    />
+        <result property="workingTime"    column="working_time"    />
+        <result property="transmittingState"    column="transmitting_state"    />
+        <result property="storageState"    column="storage_state"    />
+        <result property="storageLocation"    column="storage_location"    />
+        <result property="createdTime"    column="created_time"    />
+        <result property="creater"    column="creater"    />
+        <result property="picker"    column="picker"    />
+        <result property="auditor"    column="auditor"    />
+        <result property="housingId"    column="housing_id"    />
+        <result property="housingTime"    column="housing_time"    />
+        <result property="curingState"    column="curing_state"    />
+        <result property="curingTime"    column="curing_time"    />
+    </resultMap>
+
+    <sql id="selectMesCrystalInfoVo">
+        select id, code, model, length, type, spec, thickness_splice, is_connectible, connectible_count, connection_type, slicer_model, working_time, transmitting_state, storage_state, storage_location, created_time, creater, picker, auditor, housing_id, housing_time, curing_state, curing_time from mes_crystal_info
+    </sql>
+
+    <select id="selectMesCrystalInfoList" parameterType="MesCrystalInfo" resultMap="MesCrystalInfoResult">
+        <include refid="selectMesCrystalInfoVo"/>
+        <where>  
+            <if test="code != null  and code != ''"> and code = #{code}</if>
+            <if test="model != null  and model != ''"> and model = #{model}</if>
+            <if test="length != null "> and length = #{length}</if>
+            <if test="type != null  and type != ''"> and type = #{type}</if>
+            <if test="spec != null  and spec != ''"> and spec = #{spec}</if>
+            <if test="thicknessSplice != null  and thicknessSplice != ''"> and thickness_splice = #{thicknessSplice}</if>
+            <if test="isConnectible != null  and isConnectible != ''"> and is_connectible = #{isConnectible}</if>
+            <if test="slicerModel != null  and slicerModel != ''"> and slicer_model = #{slicerModel}</if>
+        </where>
+    </select>
+    
+    <select id="selectMesCrystalInfoById" parameterType="Long" resultMap="MesCrystalInfoResult">
+        <include refid="selectMesCrystalInfoVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMesCrystalInfo" parameterType="MesCrystalInfo" useGeneratedKeys="true" keyProperty="id">
+        insert into mes_crystal_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="code != null">code,</if>
+            <if test="model != null">model,</if>
+            <if test="length != null">length,</if>
+            <if test="type != null">type,</if>
+            <if test="spec != null">spec,</if>
+            <if test="thicknessSplice != null">thickness_splice,</if>
+            <if test="isConnectible != null">is_connectible,</if>
+            <if test="connectibleCount != null">connectible_count,</if>
+            <if test="connectionType != null">connection_type,</if>
+            <if test="slicerModel != null">slicer_model,</if>
+            <if test="workingTime != null">working_time,</if>
+            <if test="transmittingState != null">transmitting_state,</if>
+            <if test="storageState != null">storage_state,</if>
+            <if test="storageLocation != null">storage_location,</if>
+            <if test="createdTime != null">created_time,</if>
+            <if test="creater != null">creater,</if>
+            <if test="picker != null">picker,</if>
+            <if test="auditor != null">auditor,</if>
+            <if test="housingId != null">housing_id,</if>
+            <if test="housingTime != null">housing_time,</if>
+            <if test="curingState != null">curing_state,</if>
+            <if test="curingTime != null">curing_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="code != null">#{code},</if>
+            <if test="model != null">#{model},</if>
+            <if test="length != null">#{length},</if>
+            <if test="type != null">#{type},</if>
+            <if test="spec != null">#{spec},</if>
+            <if test="thicknessSplice != null">#{thicknessSplice},</if>
+            <if test="isConnectible != null">#{isConnectible},</if>
+            <if test="connectibleCount != null">#{connectibleCount},</if>
+            <if test="connectionType != null">#{connectionType},</if>
+            <if test="slicerModel != null">#{slicerModel},</if>
+            <if test="workingTime != null">#{workingTime},</if>
+            <if test="transmittingState != null">#{transmittingState},</if>
+            <if test="storageState != null">#{storageState},</if>
+            <if test="storageLocation != null">#{storageLocation},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="creater != null">#{creater},</if>
+            <if test="picker != null">#{picker},</if>
+            <if test="auditor != null">#{auditor},</if>
+            <if test="housingId != null">#{housingId},</if>
+            <if test="housingTime != null">#{housingTime},</if>
+            <if test="curingState != null">#{curingState},</if>
+            <if test="curingTime != null">#{curingTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMesCrystalInfo" parameterType="MesCrystalInfo">
+        update mes_crystal_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="code != null">code = #{code},</if>
+            <if test="model != null">model = #{model},</if>
+            <if test="length != null">length = #{length},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="spec != null">spec = #{spec},</if>
+            <if test="thicknessSplice != null">thickness_splice = #{thicknessSplice},</if>
+            <if test="isConnectible != null">is_connectible = #{isConnectible},</if>
+            <if test="connectibleCount != null">connectible_count = #{connectibleCount},</if>
+            <if test="connectionType != null">connection_type = #{connectionType},</if>
+            <if test="slicerModel != null">slicer_model = #{slicerModel},</if>
+            <if test="workingTime != null">working_time = #{workingTime},</if>
+            <if test="transmittingState != null">transmitting_state = #{transmittingState},</if>
+            <if test="storageState != null">storage_state = #{storageState},</if>
+            <if test="storageLocation != null">storage_location = #{storageLocation},</if>
+            <if test="createdTime != null">created_time = #{createdTime},</if>
+            <if test="creater != null">creater = #{creater},</if>
+            <if test="picker != null">picker = #{picker},</if>
+            <if test="auditor != null">auditor = #{auditor},</if>
+            <if test="housingId != null">housing_id = #{housingId},</if>
+            <if test="housingTime != null">housing_time = #{housingTime},</if>
+            <if test="curingState != null">curing_state = #{curingState},</if>
+            <if test="curingTime != null">curing_time = #{curingTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMesCrystalInfoById" parameterType="Long">
+        delete from mes_crystal_info where id = #{id}
+    </delete>
+
+    <delete id="deleteMesCrystalInfoByIds" parameterType="String">
+        delete from mes_crystal_info where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

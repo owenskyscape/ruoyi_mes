@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.mes.mapper.MesCrystalCheckMapper">
+    
+    <resultMap type="MesCrystalCheck" id="MesCrystalCheckResult">
+        <result property="id"    column="id"    />
+        <result property="storageLocation"    column="storage_location"    />
+        <result property="crystalCode"    column="crystal_code"    />
+        <result property="code1"    column="code1"    />
+        <result property="model1"    column="model1"    />
+        <result property="length1"    column="length1"    />
+        <result property="type1"    column="type1"    />
+        <result property="spec1"    column="spec1"    />
+        <result property="thicknessSplice1"    column="thickness_splice1"    />
+        <result property="isConnectible1"    column="is_connectible1"    />
+        <result property="connectibleCount1"    column="connectible_count1"    />
+        <result property="connectionType1"    column="connection_type1"    />
+        <result property="slicerModel1"    column="slicer_model1"    />
+        <result property="workingTime1"    column="working_time1"    />
+        <result property="transmittingState1"    column="transmitting_state1"    />
+        <result property="storageState1"    column="storage_state1"    />
+    </resultMap>
+
+    <sql id="selectMesCrystalCheckVo">
+        select id, storage_location, crystal_code, code1, model1, length1, type1, spec1, thickness_splice1, is_connectible1, connectible_count1, connection_type1, slicer_model1, working_time1, transmitting_state1, storage_state1 from mes_crystal_check
+    </sql>
+
+    <select id="selectMesCrystalCheckList" parameterType="MesCrystalCheck" resultMap="MesCrystalCheckResult">
+        <include refid="selectMesCrystalCheckVo"/>
+        <where>  
+            <if test="storageLocation != null  and storageLocation != ''"> and storage_location = #{storageLocation}</if>
+            <if test="crystalCode != null  and crystalCode != ''"> and crystal_code = #{crystalCode}</if>
+        </where>
+    </select>
+    
+    <select id="selectMesCrystalCheckById" parameterType="Long" resultMap="MesCrystalCheckResult">
+        <include refid="selectMesCrystalCheckVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMesCrystalCheck" parameterType="MesCrystalCheck" useGeneratedKeys="true" keyProperty="id">
+        insert into mes_crystal_check
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="storageLocation != null">storage_location,</if>
+            <if test="crystalCode != null">crystal_code,</if>
+            <if test="code1 != null">code1,</if>
+            <if test="model1 != null">model1,</if>
+            <if test="length1 != null">length1,</if>
+            <if test="type1 != null">type1,</if>
+            <if test="spec1 != null">spec1,</if>
+            <if test="thicknessSplice1 != null">thickness_splice1,</if>
+            <if test="isConnectible1 != null">is_connectible1,</if>
+            <if test="connectibleCount1 != null">connectible_count1,</if>
+            <if test="connectionType1 != null">connection_type1,</if>
+            <if test="slicerModel1 != null">slicer_model1,</if>
+            <if test="workingTime1 != null">working_time1,</if>
+            <if test="transmittingState1 != null">transmitting_state1,</if>
+            <if test="storageState1 != null">storage_state1,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="storageLocation != null">#{storageLocation},</if>
+            <if test="crystalCode != null">#{crystalCode},</if>
+            <if test="code1 != null">#{code1},</if>
+            <if test="model1 != null">#{model1},</if>
+            <if test="length1 != null">#{length1},</if>
+            <if test="type1 != null">#{type1},</if>
+            <if test="spec1 != null">#{spec1},</if>
+            <if test="thicknessSplice1 != null">#{thicknessSplice1},</if>
+            <if test="isConnectible1 != null">#{isConnectible1},</if>
+            <if test="connectibleCount1 != null">#{connectibleCount1},</if>
+            <if test="connectionType1 != null">#{connectionType1},</if>
+            <if test="slicerModel1 != null">#{slicerModel1},</if>
+            <if test="workingTime1 != null">#{workingTime1},</if>
+            <if test="transmittingState1 != null">#{transmittingState1},</if>
+            <if test="storageState1 != null">#{storageState1},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMesCrystalCheck" parameterType="MesCrystalCheck">
+        update mes_crystal_check
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="storageLocation != null">storage_location = #{storageLocation},</if>
+            <if test="crystalCode != null">crystal_code = #{crystalCode},</if>
+            <if test="code1 != null">code1 = #{code1},</if>
+            <if test="model1 != null">model1 = #{model1},</if>
+            <if test="length1 != null">length1 = #{length1},</if>
+            <if test="type1 != null">type1 = #{type1},</if>
+            <if test="spec1 != null">spec1 = #{spec1},</if>
+            <if test="thicknessSplice1 != null">thickness_splice1 = #{thicknessSplice1},</if>
+            <if test="isConnectible1 != null">is_connectible1 = #{isConnectible1},</if>
+            <if test="connectibleCount1 != null">connectible_count1 = #{connectibleCount1},</if>
+            <if test="connectionType1 != null">connection_type1 = #{connectionType1},</if>
+            <if test="slicerModel1 != null">slicer_model1 = #{slicerModel1},</if>
+            <if test="workingTime1 != null">working_time1 = #{workingTime1},</if>
+            <if test="transmittingState1 != null">transmitting_state1 = #{transmittingState1},</if>
+            <if test="storageState1 != null">storage_state1 = #{storageState1},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMesCrystalCheckById" parameterType="Long">
+        delete from mes_crystal_check where id = #{id}
+    </delete>
+
+    <delete id="deleteMesCrystalCheckByIds" parameterType="String">
+        delete from mes_crystal_check where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>
